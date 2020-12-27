@@ -12,4 +12,4 @@ WORKDIR /postgresql
 COPY Pipfile Pipfile.lock /postgresql/
 RUN pip install pipenv && pipenv install --system
 # Copy project
-COPY . /code/
+COPY .. /code/
