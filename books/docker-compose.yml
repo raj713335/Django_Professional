@@ -1,18 +1,22 @@
-version: '3.7'
+
+version: '3.8'
 
 services:
   web:
     build: .
-    command: python /Django_Professional/manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
-    - .:/Django_Professional
+      - .:/books
     ports:
-    - 8000:8000
+      - 8000:8000
     depends_on:
       - db
   db:
     image: postgres:11
     volumes:
-    - postgres_data:/var/lib/postgresql/data/
-  volumes:
-    postgres_data:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+volumes:
+  postgres_data:

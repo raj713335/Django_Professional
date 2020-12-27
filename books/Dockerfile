@@ -8,11 +8,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /Django_Professional
+WORKDIR /books
 
 # Install dependencies
-COPY Pipfile Pipfile.lock /Django_Professional/
+COPY Pipfile Pipfile.lock /books/
 RUN pip install pipenv && pipenv install --system
 
 # copy project
-COPY . /Django_Professional/
+COPY . /books/
