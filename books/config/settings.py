@@ -153,3 +153,7 @@ ACCOUNT_UNIQUE_EMAIL = True # new
 
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
+
+
+# bookstore_project/settings.py
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
