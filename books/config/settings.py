@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'debug_toolbar',
 
     # Local
     'accounts.apps.AccountsConfig', # new
@@ -58,7 +59,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 604800
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
+import socket
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = '127.0.0.1' #[ip[:-1] + "1" for ip in ips]
 
 ROOT_URLCONF = 'config.urls'
 
