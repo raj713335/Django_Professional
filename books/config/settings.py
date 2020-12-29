@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig', # new
     'pages.apps.PagesConfig', # new
     'books.apps.BooksConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 # django-allauth config
